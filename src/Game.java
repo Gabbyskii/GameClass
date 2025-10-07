@@ -1,34 +1,38 @@
-import util.java.Arraylist;
+import java.util.ArrayList;
+import java.util.List;
 
-class Game {
- public static void main(String[] args){
- Arraylist<Player> players = new Arraylist<Player>();
+public class Game {
 
- void init(){
+    private String name;
+    private int maxPlayers;
+    private List<Player> players;
+    TextUI ui = new TextUI();
 
-  Player p = new Player("Gabby");
-  Player p1 = new Player("Melissa");
-  Player p2 = new Player("Jasmin");
-  Player p3 = new Player("Zainab");
+    public Game(String name, int maxPlayers){
+        this.name = name;
+        this.maxPlayers = maxPlayers;
+        players = new ArrayList<>();
+    }
 
-  players.add(p);
-  players.add(p1);
-  players.add(p2);
-  players.add(p3);
+    public void registerPlayers(){
+        //boolean
+        while(this.players.size() <= this.maxPlayers) {
 
-  p1.addScore(100);
-  p1.addScore(10);
+            String playerName = ui.promptText("Tast spiller navn");
+            this.createPlayer(playerName, 0);
+        }
+    }
 
-   //change username
-  p1.setName("Elev");
- }
 
- void ListPlayers(){
+    private void createPlayer(String name, int score){
+        Player p = new Player(name, score);
+        players.add(p);
+    }
+    public void displayPlayers(){
+        for(Player p:players){
+            System.out.println(p);
+        }
 
-for(Player p: players){
- System.out.print(p); //player.username+ ": "+player.score)
-     System.out.println(p.toString());
-   }
- }
-
+    }
+}
 

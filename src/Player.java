@@ -1,28 +1,15 @@
-class Player {
-	private String username;
-	private int score;
+public class Player {
+    private String name;
+    private int score;
 
-public Player(String name) {
-	this.username = name;
-}
+    public Player(String name, int score){
+        this.name = name;
+        this.score = score;
+    }
 
-public void  addScore(int amount){
-	this.score += amount;
-}
-
-public String getName(){
-	return username;
-}
-public void setName(String newName){
-	username = newName;
-}
-
-public void setScore(int amount){
-	score = amount;
-}
-
-public String toString(){
-  return "Player username: " +this.username + "score: "+this.score;
-  }
+    @Override
+    public String toString(){
+        return name + ", "+ score;
+    }
 
 }
